@@ -161,6 +161,7 @@ EMAIL_PORT = 1025
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
+    "accounts.backends.EmailBackend",
     "social_core.backends.github.GithubOAuth2",
 ]
 
