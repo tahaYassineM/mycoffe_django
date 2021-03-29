@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+
+#header{
+  background: #5A020Cce;
+  color: #fff;
+}
+#header a:link, #header a:visited {
+    color: #2b6471;
+}
+#branding h1{
+  color: #000;
+}
+
+.img-brand{
+  width:40px;
+  height:40px;
+  transition: 0.5s;
+  border-radius: 20px;
+  margin-right: 0.2rem;
+}
+
+.img-brand:hover{
+  transform: rotate(360deg);
+}
+
+.navbar-brand:hover .img-brand{
+  box-shadow: 1px 1px 10px #fff,
+              -1px -1px 10px #fff;
+}
+
+.navbar-brand{
+  font-family: 'Gloria Hallelujah', cursive;
+  transition: 0.5s;
+}
+
+.navbar-brand:hover{
+  text-shadow: 1px 1px 10px rgb(49, 49, 49),
+              -1px -1px 10px rgb(92, 91, 91);
+  transform: rotate(-1deg);
+}
+
+.module h2, .module caption, .inline-group h2 {
+  background: #5A020Cce;
+}
+
+div.breadcrumbs{
+  background: rgba(180, 2, 2, 0.432);
+}

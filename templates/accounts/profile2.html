@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block content %}
+    profile 2
+    {{ errors_us }}
+    {{ errors_pf }}
+    <div class="my-form container p-5 my-5 rounded border border-warning">
+        <form action="{% url 'profile' %}" method="post">
+            {% csrf_token %}
+            <h2 class="text-center">Profile</h2>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="{{ user_form.first_name.id_for_label }}">{{ user_form.first_name.label }}</label>
+                    {{ user_form.first_name }}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="{{ user_form.first_name.id_for_label }}">{{ user_form.first_name.label }}</label>
+                    {{ user_form.last_name }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="{{ user_profile.location1.id_for_label }}">Address</label>
+                    {{ profile_form.location2 }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="{{ user_profile.location1.id_for_label }}">Address 2</label>
+                    {{ profile_form.location1 }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="{{ profile_form.city.id_for_label }}">{{ profile_form.city.label }}</label>
+                    {{ profile_form.city }}
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="{{ profile_form.state.id_for_label }}">{{ profile_form.state.label }}</label>
+                    {{ profile_form.state }}
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="{{ profile_form.zip.id_for_label }}">{{ profile_form.zip.label }}</label>
+                    {{ profile_form.zip }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="{{ user_form.location1.id_for_label }}">{{ user_form.email.label }}</label>
+                    {{ user_form.email }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputUsername">Username</label>
+                    <input type="text" class="form-control" name="username" value="{{ user_form.username.value }}" id="inputUsername" placeholder="" required readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" name="password" value="{{ user_form.password.value }}" id="inputPassword" required readonly>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-warning">Save Changes</button>
+        </form>
+
+
+    </div>
+{% endblock %}
