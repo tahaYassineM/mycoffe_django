@@ -10,11 +10,7 @@ class EmailBackend(ModelBackend):
 
         UserModel = get_user_model()
         try:
-            if '@' in username:
-                user = UserModel.objects.get(email=username)
-                print(user)
-            else:
-                user = UserModel.objects.get(username=username)
+            user = UserModel.objects.get(email=username)
         except UserModel.DoesNotExist:
             return None
         else:
