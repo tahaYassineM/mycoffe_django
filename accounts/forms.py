@@ -1,9 +1,9 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.forms import TextInput, PasswordInput, EmailInput, NumberInput
 from accounts.models import Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.forms.utils import ErrorList
-from django.contrib.auth.models import User
 
 
 class ParagraphErrorList(ErrorList):

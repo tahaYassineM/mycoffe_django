@@ -71,7 +71,7 @@
                 class="nav-item dropdown"
               {% endif %}>
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ user.username }}
+                {{ user.email }}
               </a>
               <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>

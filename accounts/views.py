@@ -1,8 +1,5 @@
-from .models import Profile
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
-from django.db import transaction
-from django.http.response import HttpResponse
+from .models import User
+from django.contrib.auth import login
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import CustomUserCreationForm, ParagraphErrorList, ProfileForm, UserForm
 # Create your views here.
@@ -103,6 +100,7 @@ def register_v2(request):
         )
 
     elif request.method == "POST":
+
         form_user = UserForm(
             request.POST, error_class=ParagraphErrorList)
         form_profile = ProfileForm(
@@ -128,13 +126,12 @@ def register_v2(request):
             # profile = form_profile.save()
 
             user.backend = "django.contrib.auth.backends.ModelBackend"
-
             user.refresh_from_db()
 
-            user = form_user.save()
-            user.backend = "django.contrib.auth.backends.ModelBackend"
+            print(user.username)
+            user.username = user.email
+            print(user.username)
 
-            user.refresh_from_db()
             user.profile.location1 = form_profile.cleaned_data.get(
                 'location1')
             user.profile.location2 = form_profile.cleaned_data.get(
@@ -149,7 +146,10 @@ def register_v2(request):
             login(request, user,
                   backend='django.contrib.auth.backends.ModelBackend')
 
-            return redirect('http://localhost:8000/accounts/dashboard')
+            return render(
+                request, "accounts/dashboard.html",
+                context
+            )
         else:
             context["errors_us"] = form_user.errors.items()
             context["errors_pf"] = form_profile.errors.items()

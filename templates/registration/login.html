@@ -8,6 +8,8 @@
     {{ form.as_p }}
     <input type="submit" value="Login">
     <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a>
+    <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">Login with Gmail</a>
+    <a class="btn btn-primary" href="{% url 'social:begin' 'linkedin-oauth2' %}">Login with LinkedIn</a>
     <a href="{% url 'password_reset' %}">Reset password</a>
 
 </form>
