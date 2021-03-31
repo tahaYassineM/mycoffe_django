@@ -106,8 +106,6 @@ def register_v2(request):
         form_profile = ProfileForm(
             request.POST, error_class=ParagraphErrorList)
         if form_user.is_valid() and form_profile.is_valid():
-            print(request.POST)
-
             # with transaction.atomic():
 
             # user = form_user.save()
@@ -127,10 +125,6 @@ def register_v2(request):
 
             user.backend = "django.contrib.auth.backends.ModelBackend"
             user.refresh_from_db()
-
-            print(user.username)
-            user.username = user.email
-            print(user.username)
 
             user.profile.location1 = form_profile.cleaned_data.get(
                 'location1')

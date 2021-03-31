@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+from .models import User
 from django.forms import TextInput, PasswordInput, EmailInput, NumberInput
 from accounts.models import Profile
 from django.contrib.auth.forms import UserCreationForm
@@ -24,10 +24,10 @@ class CustomUserCreationForm(UserCreationForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'password', 'username')
+        fields = ('first_name', 'last_name', 'email', 'password')
         widgets = {
             'first_name': TextInput(attrs={'class': 'form-control'}),
-            'username': TextInput(attrs={'class': 'form-control'}),
+            # 'username': TextInput(attrs={'class': 'form-control'}),
             'last_name': TextInput(attrs={'class': 'form-control'}),
             'password': PasswordInput(attrs={'class': 'form-control'}),
             'email': EmailInput(attrs={'class': 'form-control'})
